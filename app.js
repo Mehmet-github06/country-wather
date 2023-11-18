@@ -41,7 +41,7 @@ search.addEventListener("click", () => {
       const humidity = document.querySelector(".weather-details .humidity span");
       const wind = document.querySelector(".weather-details .wind span");
 
-      if(cityHide.textContent == city){
+      if(cityHide.textContent === city){
         return;
 
       }else{
@@ -78,6 +78,7 @@ search.addEventListener("click", () => {
       
           default:
               image.src = "./assent/gunesli-bulutlu.png";
+              break;
               
       }
       temperature.innerHTML = `${parseInt(json.main.temp)}<span>°C</span>`;
@@ -106,32 +107,32 @@ search.addEventListener("click", () => {
 
       setTimeout(() => {
         infoWeather.insertAdjacentElement("afterend", elCloneInfoWeather);
-        infoHumidity.insertAdjacentElement("afterend", elCloneInfoHumidity);
-        infoWind.insertAdjacentElement("afterend", elCloneInfoWind);
+        infoHumidity.insertAdjacentElement("afterend",elCloneInfoHumidity);
+        infoWind.insertAdjacentElement("afterend",elCloneInfoWind);
       }, 2200);
 
 
       const cloneInfoWeather = document.querySelectorAll('.info-weather.active-clone');
       const totalCloneInfoWeather = cloneInfoWeather.length;
       const cloneInfoWeatherFirst = cloneInfoWeather[0];
-
+      
       const cloneInfoHumidity = document.querySelectorAll('.info-humidity.active-clone');
       const cloneInfoHumidityFirst = cloneInfoHumidity[0];
-
+      
       const cloneInfoWind = document.querySelectorAll('.info-wind.active-clone');
       const cloneInfoWindFirst = cloneInfoWind[0];
-
-      if ( totalCloneInfoWeather > 0){
-        cloneInfoWeather.classList.remove("active-clone");
-        cloneInfoHumidityFirst.classList.remove("active-clone");
-        cloneInfoWindFirst.classList.remove("active-clone");
+      
+      if (totalCloneInfoWeather > 0) {
+          cloneInfoWeather.forEach((clone) => clone.classList.remove("active-clone"));
+          cloneInfoHumidity.forEach((clone) => clone.classList.remove("active-clone"));
+          cloneInfoWind.forEach((clone) => clone.classList.remove("active-clone"));
       }
 
       setTimeout(() => {
-        cloneInfoWeatherFirst.remove();
-        cloneInfoHumidityFirst.remove();
-        cloneInfoWindFirst.remove();
-      }, 2200);
+        cloneInfoWeatherFirst && cloneInfoWeatherFirst.remove();
+        cloneInfoHumidityFirst && cloneInfoHumidityFirst.remove();
+        cloneInfoWindFirst && cloneInfoWindFirst.remove();
+    }, 2200);
 
 
 

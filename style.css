@@ -231,14 +231,14 @@ transition-delay: 0s, 2s;
 }
 
 .active-clone#clone-info-weather .weather {
-    transform: translateY (0%);
+    transform: translateY(0%);
 }
 #clone-info-humidity span,
 #clone-info-wind span {
-    transform: translateY (100%);
+    transform: translateY(100%);
     transition: transform 1s ease;
 }
 .active-clone#clone-info-humidity span,
 .active-clone#clone-info-wind span {
-transform: translateY(0%);
+    transform: translateY(0%);
 }
